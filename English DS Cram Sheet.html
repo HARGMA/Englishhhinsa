@@ -1,0 +1,838 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>English DS Cram Sheet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column of white "sheets" (one per section, read in order) on a cool paper ground,
+   under a sticky section bar. Colour = TYPE of content, identical in every section (highlighter logic). */
+:root{
+  --paper:#F3F5FA;
+  --sheet:#FFFFFF;
+  --ink:#17203B;
+  --ink-soft:#4E5776;
+  --rule:#DCE0EA;
+  --redact:#C6CBDA;
+  --vocab:#1C5BBA; --vocab-hl:#D4E6FF;
+  --idiom:#A4500A; --idiom-hl:#FFE1BD;
+  --gram:#1A7140;  --gram-hl:#D2EFDC;
+  --word:#653FC3;  --word-hl:#E7DEFF;
+  --ds:#C0213A;    --ds-hl:#FFE0E4;
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1119; --sheet:#161A25; --ink:#E5E8F1; --ink-soft:#A0A8BF; --rule:#2A3042; --redact:#3A4157;
+    --vocab:#8BBDFF; --vocab-hl:#1B3354;
+    --idiom:#FFB46A; --idiom-hl:#452F19;
+    --gram:#76D298;  --gram-hl:#163A26;
+    --word:#B9A3FF;  --word-hl:#2E2551;
+    --ds:#FF7E8E;    --ds-hl:#4A1C26;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1119; --sheet:#161A25; --ink:#E5E8F1; --ink-soft:#A0A8BF; --rule:#2A3042; --redact:#3A4157;
+  --vocab:#8BBDFF; --vocab-hl:#1B3354;
+  --idiom:#FFB46A; --idiom-hl:#452F19;
+  --gram:#76D298;  --gram-hl:#163A26;
+  --word:#B9A3FF;  --word-hl:#2E2551;
+  --ds:#FF7E8E;    --ds-hl:#4A1C26;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:62rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2.1rem,6.4vw,3.3rem);font-weight:800;letter-spacing:-.025em}
+h2{font-size:clamp(1.4rem,3.6vw,1.85rem);font-weight:800;letter-spacing:-.012em}
+h3{font-size:1.1rem;font-weight:600}
+h4{font-family:var(--f-body);font-size:.95rem;font-weight:700;margin:0}
+p{margin:0}
+a{color:inherit}
+ul,ol{margin:0}
+.small{font-size:.89rem;color:var(--ink-soft)}
+.quote{font-family:var(--f-display);font-weight:600;font-size:1.04rem;color:var(--ink-soft)}
+
+/* header */
+.top{padding-block:2.2rem 1.5rem}
+.top-in{display:grid;gap:.85rem}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.lede{max-width:46rem;color:var(--ink-soft);font-size:1.03rem}
+.legend{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.5rem 1rem;font-size:.86rem;color:var(--ink-soft)}
+.legend li{display:flex;align-items:center;gap:.45rem}
+.hint{font-size:.86rem;color:var(--ink-soft)}
+
+/* labels */
+.chip{font-family:var(--f-mono);font-size:.68rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:.2em .55em;border-radius:4px;white-space:nowrap}
+.c-v{color:var(--vocab);background:var(--vocab-hl)}
+.c-i{color:var(--idiom);background:var(--idiom-hl)}
+.c-g{color:var(--gram);background:var(--gram-hl)}
+.c-w{color:var(--word);background:var(--word-hl)}
+.stamp{display:inline-block;font-family:var(--f-mono);font-size:.64rem;font-weight:600;letter-spacing:.05em;color:var(--ds);border:1.5px solid currentColor;border-radius:3px;padding:0 .4em;transform:rotate(-2.5deg);white-space:nowrap;vertical-align:.1em;line-height:1.45;font-style:normal}
+.note{font-family:var(--f-mono);font-size:.66rem;color:var(--ink-soft);border:1px dashed var(--ink-soft);border-radius:4px;padding:0 .45em;white-space:nowrap;line-height:1.5}
+
+/* highlighter marks */
+.v,.i,.g,.w{padding:.02em .28em;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:700}
+.v{background:var(--vocab-hl)}
+.i{background:var(--idiom-hl)}
+.g{background:var(--gram-hl)}
+.w{background:var(--word-hl)}
+
+/* sticky bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar-in{display:flex;align-items:center;gap:.6rem;padding-block:.5rem}
+.chips{position:relative;display:flex;gap:.2rem;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.chips::-webkit-scrollbar{display:none}
+.chips a{font-family:var(--f-mono);font-size:.72rem;text-decoration:none;white-space:nowrap;padding:.35em .5em;border-radius:999px;color:var(--ink-soft);border:1px solid transparent}
+.chips a:hover{color:var(--ink);border-color:var(--rule)}
+.chips a[aria-current="true"]{color:var(--ink);background:var(--sheet);border-color:var(--ink-soft)}
+#quiz{flex:none;font-family:var(--f-mono);font-size:.74rem;font-weight:600;padding:.45em .8em;border-radius:6px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+#quiz[aria-pressed="true"]{background:transparent;color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--vocab);outline-offset:2px}
+
+/* sheets */
+main{padding-block:1.2rem 2.5rem;display:grid;gap:1.25rem}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding-block:1.3rem 1.6rem;padding-inline:clamp(.9rem,3.4vw,2rem);display:grid;gap:1.5rem;min-width:0}
+.sec-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:.3rem .8rem;border-bottom:2px solid var(--ink);padding-bottom:.6rem}
+.num{font-family:var(--f-mono);font-weight:600;font-size:.95rem;color:var(--ink-soft)}
+.meta{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--ink-soft)}
+.block{display:grid;gap:.65rem;min-width:0}
+.block-head{display:flex;align-items:center;flex-wrap:wrap;gap:.45rem .6rem}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1rem 1.5rem;min-width:0}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16.5rem),1fr));gap:1rem 1.25rem;min-width:0}
+.g2>*,.g3>*{min-width:0}
+.stack-col{display:grid;gap:1rem;align-content:start}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;min-width:0}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+th{text-align:left;font-family:var(--f-mono);font-size:.67rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);padding:.35rem .55rem;border-bottom:1.5px solid var(--rule);white-space:nowrap}
+td{padding:.42rem .55rem;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td:first-child{font-weight:700}
+td.plain{font-weight:400}
+.ex{color:var(--ink-soft);font-style:italic}
+.fam td{white-space:normal}
+.fam .grp td{font-family:var(--f-mono);font-size:.67rem;letter-spacing:.07em;text-transform:uppercase;color:var(--word);background:var(--word-hl);font-weight:600;padding-block:.3rem}
+.su{font-family:var(--f-mono);font-size:.74rem;font-weight:600;border:1px solid var(--rule);border-radius:4px;padding:.05em .45em;white-space:nowrap}
+@media (max-width:560px){
+  table.stack thead{display:none}
+  table.stack,table.stack tbody,table.stack tr,table.stack td{display:block;width:100%}
+  table.stack tr{padding:.55rem 0;border-bottom:1px solid var(--rule)}
+  table.stack tbody tr:last-child{border-bottom:0}
+  table.stack td{border:0;padding:.08rem 0}
+  .meta{margin-left:0}
+}
+
+/* lists */
+.key{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem .45rem;font-size:.93rem}
+.key li{padding:.22rem .55rem;border-radius:6px;background:var(--paper);border:1px solid var(--rule)}
+.key.nums li>b:first-child{font-family:var(--f-mono);font-size:.72rem;color:var(--ink-soft);margin-right:.3rem;font-weight:600}
+.lines{padding-left:1.15rem;display:grid;gap:.4rem}
+.traps{padding-left:1.4rem;display:grid;gap:.45rem}
+.traps li::marker{font-family:var(--f-mono);color:var(--ds);font-weight:600}
+.pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr));gap:.45rem}
+.pair{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem;padding:.38rem .6rem;border:1px solid var(--rule);border-radius:8px;font-weight:700}
+.pair .vs{color:var(--ink-soft);font-weight:400}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:.6rem}
+.facts div{border:1px solid var(--rule);border-radius:8px;padding:.6rem .8rem;display:grid}
+.facts b{font-family:var(--f-display);font-size:1.15rem;font-weight:800}
+.facts span{color:var(--ink-soft);font-size:.88rem}
+
+/* boxes */
+.rule-box{background:var(--gram-hl);border-radius:10px;padding:.85rem 1rem;display:grid;gap:.4rem;align-content:start}
+.rule-box h4{color:var(--gram)}
+.sig{font-family:var(--f-mono);font-size:.78rem;line-height:1.6}
+.trap{background:var(--ds-hl);border-radius:10px;padding:.85rem 1rem;display:grid;gap:.5rem}
+.trap h3{color:var(--ds);font-size:1rem}
+.model{border:1px solid var(--rule);border-radius:10px;padding:.85rem 1rem;display:grid;gap:.45rem;align-content:start;font-size:.94rem}
+.trap-sheet .sec-head{border-bottom-color:var(--ds)}
+.trap-sheet .num{color:var(--ds)}
+.bonus{background:transparent;border-style:dashed}
+.foot{padding-block:0 3rem;font-size:.84rem;color:var(--ink-soft)}
+.foot p{max-width:46rem}
+
+/* quiz mode */
+.quiz .ans:not(.shown){color:transparent;background:var(--redact);border-radius:4px;cursor:pointer;user-select:none;-webkit-user-select:none}
+.quiz .ans:not(.shown) *{color:transparent!important;background:transparent!important;border-color:transparent!important}
+.quiz span.ans{padding:0 .15em}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <p class="eyebrow">INSAT · 1st year · English mid-term, semester 1</p>
+    <h1>English DS Cram Sheet</h1>
+    <p class="lede">Everything the last two S1 mid-terms tested, plus what your teacher corrected this year. Built from the fascicule, the corrections email of 1 Nov and the papers of Oct 2023 (official key) and Nov 2025. Sections 0–8 take about 25 minutes. Section 9 is optional.</p>
+    <ul class="legend" aria-label="Colour code">
+      <li><span class="chip c-v">Vocabulary</span>words and meanings</li>
+      <li><span class="chip c-i">Idioms &amp; collocations</span>fixed phrases</li>
+      <li><span class="chip c-g">Grammar</span>rules and patterns</li>
+      <li><span class="chip c-w">Word families</span>noun, adjective, adverb</li>
+      <li><span class="stamp">DS 2025</span>asked in that paper</li>
+    </ul>
+    <p class="hint">To test yourself, press <b>Hide answers</b>. Meanings and keys turn into grey bars. Tap a bar to check it.</p>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Sections">
+  <div class="wrap bar-in">
+    <div class="chips">
+      <a href="#format">0 Format</a>
+      <a href="#communication">1 Communication</a>
+      <a href="#leadership">2 Leadership</a>
+      <a href="#projects">3 Projects</a>
+      <a href="#customers">4 Complaints</a>
+      <a href="#words">5 Words</a>
+      <a href="#grammar">6 Grammar</a>
+      <a href="#reading">7 Reading</a>
+      <a href="#traps">8 Traps</a>
+      <a href="#bonus">9 Bonus</a>
+    </div>
+    <button id="quiz" type="button" aria-pressed="false">Hide answers</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 0 FORMAT -->
+<section class="sheet" id="format" aria-labelledby="h-format">
+  <div class="sec-head"><span class="num">0</span><h2 id="h-format">How the DS works</h2><span class="meta">2 min</span></div>
+  <div class="facts">
+    <div><b>1 hour</b><span>documents not allowed</span></div>
+    <div><b>Part I · Reading</b><span>7.5 to 9 points</span></div>
+    <div><b>Part II · Language</b><span>11 to 12.5 points</span></div>
+  </div>
+  <div class="block">
+    <h3>What the last two papers asked</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Exercise</th><th>Oct 2023</th><th>Nov 2025</th></tr></thead>
+      <tbody>
+        <tr><td>Past simple vs present perfect dialogue <span class="stamp">both years</span></td><td>3 pts</td><td>yes</td></tr>
+        <tr><td>Communication idioms “in the right tense and form” <span class="stamp">both years</span></td><td>2 pts</td><td>yes</td></tr>
+        <tr><td>Project words: replace phrases or add prepositions <span class="stamp">both years</span></td><td>2 pts</td><td>yes</td></tr>
+        <tr><td>Word formation: noun, adjective, adverb <span class="stamp">both years</span></td><td>3.5 pts</td><td>yes, in the reading</td></tr>
+        <tr><td>Leadership qualities matched to quotes</td><td>no</td><td>yes</td></tr>
+        <tr><td>Relative pronouns: add the missing ones</td><td>2 pts</td><td>no</td></tr>
+        <tr><td>The passive (corrected in class this year)</td><td>no</td><td>no</td></tr>
+        <tr><td>Topic of the reading text</td><td>project planning</td><td>conversation</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Both papers were written by Mrs S. Chniti. This year's corrections came from Mrs K. Jbenyeni, so the layout may change. The course content stays the same.</p>
+  </div>
+  <div class="block">
+    <h3>Your 60 minutes</h3>
+    <ol class="lines">
+      <li><b>0–5 min.</b> Read every instruction. Underline “right tense or form”, “extra words” and “correct the false ones”.</li>
+      <li><b>5–30 min.</b> Do Part II first. It is pure memory and worth more points.</li>
+      <li><b>30–55 min.</b> Do the reading.</li>
+      <li><b>55–60 min.</b> Check verb forms and spelling. Fill every gap.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 1 COMMUNICATION -->
+<section class="sheet" id="communication" aria-labelledby="h-comm">
+  <div class="sec-head"><span class="num">1</span><h2 id="h-comm">Communication</h2><span class="meta">4 min · Unit 1</span></div>
+  <p class="quote">“Everything that can be said can be said clearly.” Ludwig Wittgenstein</p>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>Good and bad communicators</h3><span class="stamp">DS 2023</span></div>
+    <div class="g2">
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Good</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><span class="v">articulate</span></td><td class="ans">expresses ideas clearly and well</td></tr>
+          <tr><td><span class="v">coherent</span></td><td class="ans">clear, logical, easy to understand</td></tr>
+          <tr><td><span class="v">eloquent</span></td><td class="ans">fluent and persuasive when speaking</td></tr>
+          <tr><td><span class="v">fluent</span></td><td class="ans">speaks easily, without stopping</td></tr>
+          <tr><td><span class="v">focussed</span></td><td class="ans">keeps to the main point</td></tr>
+          <tr><td><span class="v">persuasive</span></td><td class="ans">good at influencing people</td></tr>
+          <tr><td><span class="v">responsive</span></td><td class="ans">reacts quickly and positively</td></tr>
+          <tr><td><span class="v">sensitive</span></td><td class="ans">notices other people's feelings (teacher's note: easily hurt by criticism)</td></tr>
+          <tr><td><span class="v">succinct</span></td><td class="ans">clear and brief, few words (= concise)</td></tr>
+          <tr><td><span class="v">extrovert</span></td><td class="ans">outgoing, confident with people</td></tr>
+        </tbody>
+      </table></div>
+      <div class="stack-col">
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Bad</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><span class="v">hesitant</span></td><td class="ans">slow and unsure when speaking</td></tr>
+            <tr><td><span class="v">inhibited</span></td><td class="ans">shy, uncomfortable, reluctant to speak</td></tr>
+            <tr><td><span class="v">rambling</span></td><td class="ans">talking for a long time without a clear direction</td></tr>
+            <tr><td><span class="v">reserved</span></td><td class="ans">quiet, doesn't express opinions openly</td></tr>
+          </tbody>
+        </table></div>
+        <div class="block">
+          <h4>If the question gives the meaning, write:</h4>
+          <ul class="key">
+            <li>concise → <span class="ans">succinct</span></li>
+            <li>reluctant to speak → <span class="ans">inhibited</span></li>
+            <li>talking in a confused way → <span class="ans">rambling</span></li>
+            <li>able to express ideas well → <span class="ans">articulate</span></li>
+            <li>clear and easy to understand → <span class="ans">coherent</span></li>
+            <li>good at influencing people → <span class="ans">persuasive</span></li>
+            <li>outgoing → <span class="ans">extrovert</span></li>
+            <li>reacting in a positive way → <span class="ans">responsive</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>What good communicators do</h3></div>
+    <p>They really <span class="v">listen</span> and seldom <span class="v">interrupt</span>. If they don't understand, they wait for a chance to <span class="v">clarify</span>. They never <span class="v">confuse</span> the listener, and they <span class="v">explain</span> jargon with an easy example. They may <span class="v">digress</span> (leave the main topic for a moment) but never <span class="v">ramble</span> (talk without direction). They <span class="v">engage</span> with colleagues, employees, customers and suppliers.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-i">Idioms</span><h3>The 10 communication idioms</h3><span class="stamp">DS 2023</span><span class="stamp">DS 2025</span></div>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Idiom</th><th>Meaning</th><th>Use it like this</th></tr></thead>
+      <tbody>
+        <tr><td><span class="i">put it in a nutshell</span></td><td class="ans">summarise briefly</td><td class="ex">It's complicated, but to put it in a nutshell, it works like a big kettle.</td></tr>
+        <tr><td><span class="i">get straight to the point</span></td><td class="ans">talk about the main thing directly</td><td class="ex">She asked her child to stop beating about the bush and get straight to the point. <span class="stamp">DS 2023</span></td></tr>
+        <tr><td><span class="i">hear it on the grapevine</span></td><td class="ans">hear news through gossip</td><td class="ex">I've heard it on the grapevine that he's been fired. Is it true?</td></tr>
+        <tr><td><span class="i">put someone in the picture</span></td><td class="ans">give someone the latest information</td><td class="ex">Important decisions were taken yesterday. Let me put you in the picture.</td></tr>
+        <tr><td><span class="i">get the wrong end of the stick</span></td><td class="ans">misunderstand completely</td><td class="ex">If you think our biggest problem is market share, you've got the wrong end of the stick.</td></tr>
+        <tr><td><span class="i">be on the same wavelength</span></td><td class="ans">share the same ideas and opinions</td><td class="ex">The team finally managed to be on the same wavelength and reach a compromise. <span class="stamp">DS 2023</span></td></tr>
+        <tr><td><span class="i">can't make head or tail of it</span></td><td class="ans">understand nothing at all</td><td class="ex">His handwriting was so bad that the teacher couldn't make head or tail of it. <span class="stamp">DS 2023</span></td></tr>
+        <tr><td><span class="i">talk at cross purposes</span></td><td class="ans">talk about different things without realising it</td><td class="ex">She expected profit figures and I was going on about sales figures. We were talking at cross purposes. <span class="stamp">DS 2023</span></td></tr>
+        <tr><td><span class="i">beat about the bush</span></td><td class="ans">delay talking about the main point</td><td class="ex">He is usually blamed for beating about the bush. He barely gets to the point. <span class="stamp">DS 2025</span></td></tr>
+        <tr><td><span class="i">get our wires crossed</span></td><td class="ans">misunderstand each other</td><td class="ex">Everyone arrived at different times. We must have got our wires crossed.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="trap">
+    <h3>Trap: “in the right tense and form”</h3>
+    <ul class="lines">
+      <li><b>stop / avoid / blamed for + -ing</b> → stop <u>beating</u> about the bush</li>
+      <li><b>can't / managed to / be able to + base form</b> → cannot <u>pass</u> the buck, managed to <u>be</u> on the same wavelength</li>
+      <li><b>a past story</b> → <u>couldn't make</u> head or tail of it, <u>were talking</u> at cross purposes, <u>got</u> the wrong end of the stick</li>
+      <li><b>must have + past participle</b> → must have <u>got</u> our wires crossed</li>
+      <li><b>change the person</b> → put <u>you / them</u> in the picture, got <u>their</u> wires crossed</li>
+    </ul>
+    <p class="small"><span class="stamp">DS 2025</span> idiom gaps (no official key, my answers): leaders cannot <span class="ans">pass the buck</span> · skilled employees are able to <span class="ans">get to the bottom of the problem</span> · blamed for <span class="ans">beating about the bush</span> · the audience seemed to <span class="ans">be unable to make head or tail of it</span>. Two of these come from section 4.</p>
+  </div>
+</section>
+
+<!-- 2 LEADERSHIP -->
+<section class="sheet" id="leadership" aria-labelledby="h-lead">
+  <div class="sec-head"><span class="num">2</span><h2 id="h-lead">Leadership</h2><span class="meta">4 min</span></div>
+  <p class="quote">“The key to successful leadership today is influence, not authority.” Kenneth Blanchard</p>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>12 leadership qualities</h3><span class="stamp">DS 2025</span></div>
+    <p class="small">The DS gives quotes and a box of words with extra ones. Learn the clue for each word.</p>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Word</th><th>Type</th><th>The quote says…</th></tr></thead>
+      <tbody>
+        <tr><td><span class="v">humble</span></td><td class="plain">adjective</td><td class="ans">not arrogant, even though very successful</td></tr>
+        <tr><td><span class="v">decisive</span></td><td class="plain">adjective</td><td class="ans">not afraid of difficult choices, weighs up a situation and commits</td></tr>
+        <tr><td><span class="v">empathy</span></td><td class="plain">noun</td><td class="ans">really understands us, knows what makes us tick</td></tr>
+        <tr><td><span class="v">self-aware</span></td><td class="plain">adjective</td><td class="ans">knows his own mind and what he's capable of</td></tr>
+        <tr><td><span class="v">commitment</span></td><td class="plain">noun</td><td class="ans">the team is focused on success and always gives 100%</td></tr>
+        <tr><td><span class="v">passionate</span></td><td class="plain">adjective</td><td class="ans">“I love this business, it's my life”</td></tr>
+        <tr><td><span class="v">conviction</span></td><td class="plain">noun</td><td class="ans">believes totally in what he's doing</td></tr>
+        <tr><td><span class="v">adaptable</span></td><td class="plain">adjective</td><td class="ans">changes direction when needed, but thinks through the implications</td></tr>
+        <tr><td><span class="v">integrity</span></td><td class="plain">noun</td><td class="ans">principled, means what she says, can be trusted</td></tr>
+        <tr><td><span class="v">collaborative</span></td><td class="plain">adjective</td><td class="ans">involves everyone in decision-making</td></tr>
+        <tr><td><span class="v">hands-off</span></td><td class="plain">adjective</td><td class="ans">never interferes, lets the team get on with it</td></tr>
+        <tr><td><span class="v">people-focused</span></td><td class="plain">adjective</td><td class="ans">excellent communicator, gets on well with everyone</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="stamp">DS 2025</span><h3>The quote-matching question</h3><span class="note">no official key, my answers</span></div>
+    <ul class="key">
+      <li>“compact, precise, no wasted words” → <span class="ans">succinct</span></li>
+      <li>“makes choices quickly and confidently” → <span class="ans">decisive</span></li>
+      <li>“strong moral and ethical principles” → <span class="ans">integrity</span></li>
+      <li>“give their time and energy to the goals” → <span class="ans">commitment</span></li>
+      <li>“extrovert, sensitive, open to the outside world” → <span class="ans">responsiveness</span></li>
+      <li>“admit they could be wrong, give credit” → <span class="ans">self-aware</span></li>
+    </ul>
+    <p class="small">That leaves persuasive, conviction and adaptable as the 3 extra words.</p>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>Character adjectives in opposite pairs</h3></div>
+    <div class="pairs">
+      <div class="pair"><span class="v">assertive</span><span class="vs">↔</span><span class="ans">diffident</span></div>
+      <div class="pair"><span class="v">cautious</span><span class="vs">↔</span><span class="ans">decisive</span></div>
+      <div class="pair"><span class="v">casual</span><span class="vs">↔</span><span class="ans">formal</span></div>
+      <div class="pair"><span class="v">encouraging</span><span class="vs">↔</span><span class="ans">critical</span></div>
+      <div class="pair"><span class="v">idealistic</span><span class="vs">↔</span><span class="ans">realistic</span></div>
+      <div class="pair"><span class="v">dynamic</span><span class="vs">↔</span><span class="ans">laid-back</span></div>
+      <div class="pair"><span class="v">radical</span><span class="vs">↔</span><span class="ans">conservative</span></div>
+      <div class="pair"><span class="v">ruthless</span><span class="vs">↔</span><span class="ans">principled</span></div>
+      <div class="pair"><span class="v">distant</span><span class="vs">↔</span><span class="ans">approachable</span></div>
+    </div>
+    <p class="small"><b>assertive</b> = self-assured and confident. The “Résumé Anglais” PDF pairs some of these wrongly (cautious/casual). Use the pairs above, which match the teacher's key.</p>
+    <ul class="key">
+      <li>doesn't rush into things → <span class="ans">cautious</span></li>
+      <li>points out problems → <span class="ans">critical</span></li>
+      <li>serious in dress and dealings → <span class="ans">formal</span></li>
+      <li>clear vision, but not realistic → <span class="ans">idealistic</span></li>
+      <li>sacked anyone in his way → <span class="ans">ruthless</span></li>
+      <li>friendly, easy to talk to → <span class="ans">approachable</span></li>
+      <li>won't try anything new → <span class="ans">conservative</span></li>
+      <li>never approves unethical policies → <span class="ans">principled</span></li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-i">Phrasal verbs</span><h3>Six phrasal verbs and their nouns</h3><span class="stamp">DS 2025</span></div>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Phrasal verb</th><th>Goes with</th><th>Means</th></tr></thead>
+      <tbody>
+        <tr><td><span class="i">take on</span></td><td class="plain">responsibility</td><td class="ans">accept</td></tr>
+        <tr><td><span class="i">be up to</span></td><td class="plain">the job</td><td class="ans">be good enough</td></tr>
+        <tr><td><span class="i">put forward</span></td><td class="plain">a proposal, a suggestion</td><td class="ans">propose</td></tr>
+        <tr><td><span class="i">deal with</span></td><td class="plain">a problem</td><td class="ans">manage</td></tr>
+        <tr><td><span class="i">hand in</span></td><td class="plain">your resignation, a report</td><td class="ans">give</td></tr>
+        <tr><td><span class="i">come in for</span></td><td class="plain">criticism</td><td class="ans">receive</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- 3 PROJECTS -->
+<section class="sheet" id="projects" aria-labelledby="h-proj">
+  <div class="sec-head"><span class="num">3</span><h2 id="h-proj">Projects: On schedule</h2><span class="meta">4 min · Unit 3</span></div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-i">Collocations</span><h3>10 project phrases: successful (S) or unsuccessful (U)?</h3></div>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Phrase</th><th>Meaning</th><th>S / U</th></tr></thead>
+      <tbody>
+        <tr><td><span class="i">upfront planning</span></td><td class="ans">preparation before you do anything else</td><td><span class="su">S</span></td></tr>
+        <tr><td><span class="i">accurate forecast</span></td><td class="ans">correct prediction of timings and costs</td><td><span class="su">S</span></td></tr>
+        <tr><td><span class="i">realistic budget</span></td><td class="ans">a sensible amount of money</td><td><span class="su">S</span></td></tr>
+        <tr><td><span class="i">stay on track</span></td><td class="ans">go as planned</td><td><span class="su">S</span></td></tr>
+        <tr><td><span class="i">make the launch date</span></td><td class="ans">be ready (in the shops) on the planned day</td><td><span class="su">S</span></td></tr>
+        <tr><td><span class="i">budget constraints</span></td><td class="ans">limits on the money you can spend</td><td><span class="su">S and U</span></td></tr>
+        <tr><td><span class="i">miss the deadline</span></td><td class="ans">finish too late</td><td><span class="su">U</span></td></tr>
+        <tr><td><span class="i">run into problems</span></td><td class="ans">meet unexpected difficulties</td><td><span class="su">U</span></td></tr>
+        <tr><td><span class="i">go over budget</span></td><td class="ans">spend more than planned</td><td><span class="su">U</span></td></tr>
+        <tr><td><span class="i">fall behind schedule</span></td><td class="ans">be late compared with the plan</td><td><span class="su">U</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-i">Collocations</span><h3>One verb, three phrases</h3></div>
+    <ul class="key">
+      <li><b>run</b> smoothly / on time / into problems</li>
+      <li><b>miss</b> the deadline / the launch date / the chance</li>
+      <li><b>stay</b> on track / within budget / the course</li>
+      <li><b>go</b> over budget / ahead with the plan / out of control</li>
+      <li><b>make</b> the deadline / a plan / a mess of it</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="stamp">DS 2023</span><h3>Replace the phrase in bold</h3><span class="note">official key</span></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>The sentence says…</th><th>Write</th></tr></thead>
+      <tbody>
+        <tr><td class="plain">decide what we're going to spend</td><td class="ans"><span class="i">set a budget</span></td></tr>
+        <tr><td class="plain">they quickly spent everything</td><td class="ans">they quickly <span class="i">ran out of money</span></td></tr>
+        <tr><td class="plain">responsible for giving out money</td><td class="ans">responsible for <span class="i">allocating funds</span></td></tr>
+        <tr><td class="plain">settle disagreements</td><td class="ans"><span class="i">resolve conflicts</span></td></tr>
+        <tr><td class="plain">put things in order of importance</td><td class="ans"><span class="i">prioritize tasks</span></td></tr>
+        <tr><td class="plain">it will be expensive if we are late</td><td class="ans">if we <span class="i">miss the deadline</span></td></tr>
+        <tr><td class="plain">have information about what is happening with spending</td><td class="ans"><span class="i">keep track of</span> spending</td></tr>
+        <tr><td class="plain">pursue their journey until they achieve the goals</td><td class="ans"><span class="i">stay the course</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">Extra phrases that year: <b>set a launch date</b>, <b>stay within budget</b>. Change the verb to fit the sentence (ran, allocating).</p>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="stamp">DS 2025</span><h3>Missing prepositions</h3><span class="note">no official key, my answers</span></div>
+    <ul class="key">
+      <li>run <span class="ans">into</span> problems</li>
+      <li>stay <span class="ans">on</span> track</li>
+      <li>hand <span class="ans">in</span> feedback reports</li>
+      <li>come in <span class="ans">for</span> criticism</li>
+      <li>fall <span class="ans">behind</span> schedule</li>
+      <li>go <span class="ans">over</span> budget</li>
+      <li>finish <span class="ans">ahead</span> of schedule</li>
+      <li>stay <span class="ans">within</span> budget</li>
+      <li>put <span class="ans">forward</span> proposals</li>
+      <li>a great leader stands <span class="ans">among</span> his people, not above them</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>Five common project problems, and the fix</h3></div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Problem</th><th>Fix (reuse it in an open question)</th></tr></thead>
+      <tbody>
+        <tr><td>Not enough planning time</td><td class="ans">upfront planning, because changes later eat time and money</td></tr>
+        <tr><td>Communication breakdowns</td><td class="ans">regular meetings, copy everyone in, tell suppliers about changes</td></tr>
+        <tr><td>Unrealistic budget</td><td class="ans">an accurate forecast and a realistic budget</td></tr>
+        <tr><td>Not regularly checking progress</td><td class="ans">check milestones and keep track of spending</td></tr>
+        <tr><td>Not reviewing existing standards</td><td class="ans">review past projects so you don't repeat mistakes</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small"><b>Theme-park case study:</b> brainstorming (no budget constraints yet) → storyboard → 3D models → forecast and budget → go-ahead → engineers and outsourcing (risk of falling behind schedule or going over budget) → safety testing → launch date → visitor feedback.</p>
+  </div>
+</section>
+
+<!-- 4 CUSTOMER SERVICE -->
+<section class="sheet" id="customers" aria-labelledby="h-cust">
+  <div class="sec-head"><span class="num">4</span><h2 id="h-cust">Customer service: handling complaints</h2><span class="meta">2 min</span></div>
+  <p class="small">Not in the fascicule, but corrected in class this year. Two of its idioms were in DS 2025 under “communication idioms”, so learn both idiom lists together.</p>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-v">Vocabulary</span><h3>Five sentences to know</h3></div>
+    <ul class="lines">
+      <li>When you handle <span class="v">complaints</span>, it is important <span class="ans">to be diplomatic</span>.</li>
+      <li>You can establish a <span class="v">rapport</span> with a customer if <span class="ans">you know about their buying habits</span>.</li>
+      <li>A key element in customer care is to <span class="v">reassure</span> people <span class="ans">when they are worried</span>.</li>
+      <li>Companies which do not meet their <span class="v">standards</span> of service <span class="ans">will lose customers</span>.</li>
+      <li>Many companies will replace <span class="v">products</span> free of charge <span class="ans">if they are faulty</span>.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="chip c-i">Idioms</span><h3>Seven complaint idioms</h3><span class="stamp">DS 2025</span></div>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Idiom</th><th>Meaning</th><th>Use it like this</th></tr></thead>
+      <tbody>
+        <tr><td><span class="i">pass the buck</span> <span class="stamp">DS 2025</span></td><td class="ans">avoid responsibility, blame others</td><td class="ex">Elected political leaders cannot pass the buck for crisis decisions.</td></tr>
+        <tr><td><span class="i">get to the bottom of the problem</span> <span class="stamp">DS 2025</span></td><td class="ans">find the real cause</td><td class="ex">She promised to get to the bottom of the problem and find a solution.</td></tr>
+        <tr><td><span class="i">it was the last straw</span></td><td class="ans">the final problem in a series that you can't accept any more</td><td class="ex">They ignored my complaints, but it was the last straw when they refused to refund my money.</td></tr>
+        <tr><td><span class="i">get straight to the point</span></td><td class="ans">talk about the subject directly</td><td class="ex">I saw no point in arguing. I got straight to the point and said I wanted my money back.</td></tr>
+        <tr><td><span class="i">slip my mind</span></td><td class="ans">forget to do something</td><td class="ex">I meant to send him a brochure, but we were busy and it slipped my mind.</td></tr>
+        <tr><td><span class="i">be ripped off</span></td><td class="ans">pay far too much, be cheated</td><td class="ex">They say they're paying far too much and feel they have been ripped off.</td></tr>
+        <tr><td><span class="i">talk at cross purposes</span></td><td class="ans">misunderstand what the other person is referring to</td><td class="ex">They wanted a larger order; I thought they wanted a discount. We were talking at cross purposes.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- 5 WORD FAMILIES -->
+<section class="sheet" id="words" aria-labelledby="h-words">
+  <div class="sec-head"><span class="num">5</span><h2 id="h-words">Word families</h2><span class="meta">3 min · 3.5 pts in 2023</span></div>
+  <div class="block">
+    <div class="block-head"><span class="chip c-w">Word families</span><h3>Read the gap to pick the form</h3></div>
+    <div class="g2">
+      <ul class="lines">
+        <li>After <b>a / the / 's / of</b>, “a great deal of”, “showing” → <span class="w">noun</span>: the presenter's <u>fluency</u>, a great deal of <u>responsiveness</u></li>
+        <li>After <b>be / become / feel / seem / very</b>, or before a noun → <span class="w">adjective</span>: become more <u>assertive</u>, feel <u>inhibited</u>, a <u>laid-back</u> company</li>
+        <li>Describing a verb → <span class="w">adverb</span>: they express their ideas <u>coherently</u></li>
+      </ul>
+      <ul class="lines">
+        <li>Adverb + past participle: <b>formally dressed</b>, <b>formally behaved</b></li>
+        <li><b>over-</b> means too much: <b>over-cautious</b></li>
+        <li>Opposites: <b>in</b>coherent, <b>in</b>sensitive, <b>un</b>responsive, <b>in</b>decisive, <b>dis</b>courteous, <b>un</b>realistic</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl-wrap"><table class="fam">
+    <thead><tr><th>Given word</th><th>Noun</th><th>Adjective</th><th>Adverb</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="4">Communication</td></tr>
+      <tr><td>assert (verb) <span class="stamp">DS 2023</span></td><td class="ans">assertion, assertiveness</td><td class="ans">assertive</td><td class="ans">assertively</td></tr>
+      <tr><td>articulate <span class="stamp">DS 2023</span></td><td class="ans">articulacy, articulateness</td><td class="ans">articulate</td><td class="ans">articulately</td></tr>
+      <tr><td>coherent <span class="stamp">DS 2023</span></td><td class="ans">coherence</td><td class="ans">coherent</td><td class="ans">coherently</td></tr>
+      <tr><td>eloquent <span class="stamp">DS 2023</span></td><td class="ans">eloquence</td><td class="ans">eloquent</td><td class="ans">eloquently</td></tr>
+      <tr><td>fluent <span class="stamp">DS 2023</span></td><td class="ans">fluency</td><td class="ans">fluent</td><td class="ans">fluently</td></tr>
+      <tr><td>focus <span class="stamp">DS 2023</span></td><td class="ans">focus</td><td class="ans">focused / focussed</td><td>–</td></tr>
+      <tr><td>respond (verb) <span class="stamp">DS 2023</span></td><td class="ans">response, responsiveness</td><td class="ans">responsive</td><td class="ans">responsively</td></tr>
+      <tr><td>sensitive <span class="stamp">DS 2023</span></td><td class="ans">sensitivity, sensitiveness</td><td class="ans">sensitive</td><td class="ans">sensitively</td></tr>
+      <tr><td>inhibit (verb) <span class="stamp">DS 2023</span></td><td class="ans">inhibition</td><td class="ans">inhibited</td><td>–</td></tr>
+      <tr><td>persuade (verb)</td><td class="ans">persuasion</td><td class="ans">persuasive</td><td class="ans">persuasively</td></tr>
+      <tr><td>succinct</td><td class="ans">succinctness</td><td class="ans">succinct</td><td class="ans">succinctly</td></tr>
+      <tr><td>hesitate (verb)</td><td class="ans">hesitation</td><td class="ans">hesitant</td><td class="ans">hesitantly</td></tr>
+      <tr class="grp"><td colspan="4">Leadership</td></tr>
+      <tr><td>criticize (verb) <span class="stamp">DS 2023</span></td><td class="ans">criticism, critic</td><td class="ans">critical</td><td class="ans">critically</td></tr>
+      <tr><td>caution <span class="stamp">DS 2023</span></td><td class="ans">caution</td><td class="ans">cautious, over-cautious</td><td class="ans">cautiously</td></tr>
+      <tr><td>formal <span class="stamp">DS 2023</span></td><td class="ans">formality</td><td class="ans">formal</td><td class="ans">formally (formally dressed)</td></tr>
+      <tr><td>lay back <span class="stamp">DS 2023</span></td><td>–</td><td class="ans">laid-back</td><td>–</td></tr>
+      <tr><td>decide (verb)</td><td class="ans">decision, decisiveness</td><td class="ans">decisive</td><td class="ans">decisively</td></tr>
+      <tr><td>humble</td><td class="ans">humility</td><td class="ans">humble</td><td class="ans">humbly</td></tr>
+      <tr><td>empathise (verb) <span class="stamp">DS 2025</span></td><td class="ans">empathy</td><td class="ans">empathetic, empathic</td><td>–</td></tr>
+      <tr><td>self-aware</td><td class="ans">self-awareness</td><td class="ans">self-aware</td><td>–</td></tr>
+      <tr><td>commit (verb)</td><td class="ans">commitment</td><td class="ans">committed</td><td>–</td></tr>
+      <tr><td>passion</td><td class="ans">passion</td><td class="ans">passionate</td><td class="ans">passionately</td></tr>
+      <tr><td>convince (verb)</td><td class="ans">conviction</td><td class="ans">convinced, convincing</td><td>–</td></tr>
+      <tr><td>adapt (verb)</td><td class="ans">adaptability</td><td class="ans">adaptable</td><td>–</td></tr>
+      <tr><td>collaborate (verb)</td><td class="ans">collaboration</td><td class="ans">collaborative</td><td class="ans">collaboratively</td></tr>
+      <tr><td>approach (verb)</td><td class="ans">approachability</td><td class="ans">approachable</td><td>–</td></tr>
+      <tr><td>ruthless</td><td class="ans">ruthlessness</td><td class="ans">ruthless</td><td class="ans">ruthlessly</td></tr>
+      <tr><td>principle</td><td class="ans">principle</td><td class="ans">principled</td><td>–</td></tr>
+      <tr><td>confident</td><td class="ans">confidence</td><td class="ans">confident</td><td class="ans">confidently</td></tr>
+      <tr class="grp"><td colspan="4">From the 2025 reading</td></tr>
+      <tr><td>witty <span class="stamp">DS 2025</span></td><td class="ans">wit</td><td class="ans">witty</td><td class="ans">wittily</td></tr>
+      <tr><td>sarcastic <span class="stamp">DS 2025</span></td><td class="ans">sarcasm</td><td class="ans">sarcastic</td><td class="ans">sarcastically</td></tr>
+      <tr><td>courteous <span class="stamp">DS 2025</span></td><td class="ans">courtesy</td><td class="ans">courteous</td><td class="ans">courteously</td></tr>
+      <tr><td>courage <span class="stamp">DS 2025</span></td><td class="ans">courage</td><td class="ans">courageous</td><td class="ans">courageously</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 6 GRAMMAR -->
+<section class="sheet" id="grammar" aria-labelledby="h-gram">
+  <div class="sec-head"><span class="num">6</span><h2 id="h-gram">Grammar</h2><span class="meta">6 min</span></div>
+
+  <div class="block" id="pp">
+    <div class="block-head"><span class="chip c-g">Grammar</span><h3>A · Past simple vs present perfect</h3><span class="stamp">DS 2023</span><span class="stamp">DS 2025</span></div>
+    <div class="g2">
+      <div class="rule-box">
+        <h4>Past simple: finished, time known</h4>
+        <p>He <b>booked</b> the venue two weeks ago. I <b>sent</b> you the agenda yesterday.</p>
+        <p class="sig">yesterday · last week · two weeks ago · in 2024 · When…? · What happened? · Last time we met…</p>
+      </div>
+      <div class="rule-box">
+        <h4>Present perfect: linked to now</h4>
+        <p>We<b>'ve hit</b> a problem. I <b>haven't made</b> a final choice yet.</p>
+        <p class="sig">already · yet · just · ever · never · recently · so far · up to now · to date · since… · for… · since our last meeting · over the last few months</p>
+      </div>
+    </div>
+    <p><b>Either tense:</b> today, this morning, this week, in the last month. Use the present perfect if the period is still going on, the past simple if it is over. <b>already</b> = earlier than expected. <b>yet</b> = we expect it to happen.</p>
+    <ol class="traps">
+      <li>A <b>When…?</b> question is always past simple: <i>When <u>did you see</u> him?</i></li>
+      <li>The story after <b>What happened?</b> stays in the past simple: <i>he <u>rejected</u> anything that <u>looked</u> new… he <u>dropped out</u> of the team.</i></li>
+      <li><b>since + a moment</b> → present perfect: <i>I <u>have been</u> with Lescot since January</i> (not “I am”). The moment itself is past simple: <i>since I <u>began</u> working for them</i>.</li>
+      <li><b>for + a period</b> → <i>I <u>haven't seen</u> you for months.</i></li>
+      <li><b>yet / already / just</b> → present perfect: <i>he <u>hasn't made</u> up his mind yet · I<u>'ve just organized</u> that.</i></li>
+      <li>A result now, with no time given → present perfect: <i>You <u>have been</u> very efficient.</i></li>
+    </ol>
+    <div class="g2">
+      <div class="block">
+        <h4>DS 2023 dialogue <span class="note">official key</span></h4>
+        <ul class="key nums">
+          <li><b>1</b><span class="ans">has decided</span></li>
+          <li><b>2</b><span class="ans">have already spoken</span></li>
+          <li><b>3</b><span class="ans">did you see</span></li>
+          <li><b>4</b><span class="ans">called</span></li>
+          <li><b>5</b><span class="ans">did he say</span></li>
+          <li><b>6</b><span class="ans">hasn't made</span></li>
+          <li><b>7</b><span class="ans">haven't arrived</span></li>
+          <li><b>8</b><span class="ans">Have you finalized</span></li>
+          <li><b>9</b><span class="ans">have fixed</span></li>
+          <li><b>10</b><span class="ans">spoke</span> (a couple of days ago)</li>
+          <li><b>11</b><span class="ans">have just organized</span></li>
+          <li><b>12</b><span class="ans">have been</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h4>DS 2025 dialogue <span class="note">my answers</span></h4>
+        <ul class="key nums">
+          <li><b>1</b><span class="ans">haven't seen</span> (for months)</li>
+          <li><b>2</b><span class="ans">met</span></li>
+          <li><b>3</b><span class="ans">were</span></li>
+          <li><b>4</b><span class="ans">went</span></li>
+          <li><b>5</b><span class="ans">have recovered</span> (yet)</li>
+          <li><b>6</b><span class="ans">rejected</span></li>
+          <li><b>7</b><span class="ans">looked</span></li>
+          <li><b>8</b><span class="ans">dropped out</span></li>
+          <li><b>9</b><span class="ans">have been</span> up to</li>
+          <li><b>10</b><span class="ans">have recently changed</span></li>
+          <li><b>11</b><span class="ans">have quit</span></li>
+          <li><b>12</b><span class="ans">have been</span> (since January)</li>
+          <li><b>13</b><span class="ans">began</span></li>
+          <li><b>14</b><span class="ans">have taken up</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="block" id="rel">
+    <div class="block-head"><span class="chip c-g">Grammar</span><h3>B · Relative pronouns</h3><span class="stamp">DS 2023</span></div>
+    <div class="tbl-wrap"><table class="stack">
+      <thead><tr><th>Pronoun</th><th>Used for</th><th>Example from the DS 2023 text</th></tr></thead>
+      <tbody>
+        <tr><td><span class="g">who</span></td><td class="plain">people</td><td class="ex">many professionals who have the talent…</td></tr>
+        <tr><td><span class="g">which</span></td><td class="plain">things</td><td class="ex">it was visual impact which was the most important…</td></tr>
+        <tr><td><span class="g">that</span></td><td class="plain">people or things, defining clauses only</td><td class="ex">it's the content that they are concerned about</td></tr>
+        <tr><td><span class="g">whose</span></td><td class="plain">possession</td><td class="ex">the advertising executive whose soft, breathy voice…</td></tr>
+        <tr><td><span class="g">where</span></td><td class="plain">place</td><td class="ex">on the telephone, where appearance is irrelevant…</td></tr>
+        <tr><td><span class="g">when</span></td><td class="plain">time</td><td class="ex">at the times when they try to get their message across…</td></tr>
+        <tr><td><span class="g">why</span></td><td class="plain">reason</td><td class="ex">the reason why you failed to land that dream job</td></tr>
+      </tbody>
+    </table></div>
+    <ul class="lines">
+      <li><b>Defining clause</b> (no commas) = essential information: <i>People <u>who</u> are in leadership roles often have to act alone.</i></li>
+      <li><b>Non-defining clause</b> (between commas) = extra information. Use who or which, <b>never that</b>: <i>Ikea, <u>which</u> recently entered the Russian market, remains a private company.</i></li>
+      <li><b>DS format:</b> “eight relative pronouns are missing”. Give the line number and 2–3 words before and after. Look for a noun followed straight by a verb, or by a new subject, with no link word.</li>
+      <li><b>Quotes:</b> He <u>who</u> has never learned to obey cannot be a good commander (Aristotle) · a vision, <u>which</u> gives point to the work of others (Handy) · the challenge <u>that</u> we all face… an environment <u>where</u> people can reach their dreams (Welch) · someone <u>who</u> knows what they want to achieve (Thatcher)</li>
+    </ul>
+  </div>
+
+  <div class="block" id="passive">
+    <div class="block-head"><span class="chip c-g">Grammar</span><h3>C · The passive</h3><span class="note">corrected in class this year</span></div>
+    <div class="g2">
+      <div class="rule-box">
+        <h4>be (in the right tense) + past participle</h4>
+        <p>is proposed · was taken · has been agreed · will be coordinated</p>
+        <p class="sig">Why: more formal · who did it doesn't matter · you don't know who · to distance yourself from the decision</p>
+      </div>
+      <div class="rule-box">
+        <h4>Two patterns</h4>
+        <p><b>tell, inform, instruct, persuade</b> (+ a person): the person becomes the subject. <i>I've been told that… · We've been instructed to…</i></p>
+        <p><b>suggest, agree, decide, propose</b> (no person): start with It. <i>It has been suggested that…</i> Never <s>I've been suggested</s>.</p>
+      </div>
+    </div>
+    <h4>Class exercise <span class="note">teacher's key</span></h4>
+    <ol class="lines">
+      <li>Our new deadline is 31 January (inform) → <span class="ans">We have been informed that our new official deadline is the 31st of January.</span></li>
+      <li>Management think we should cut back on consultants (agree) → <span class="ans">It has been agreed that we should cut back on our use of freelance consultants.</span></li>
+      <li>The department will be restructured (propose) → <span class="ans">It has been proposed that the department (should) be restructured next year.</span></li>
+      <li>Head Office wants us to cut spending by 5% (instruct) → <span class="ans">We have been instructed to reduce our spending by 5%.</span></li>
+      <li>Bonuses twice a year from now on (decide) → <span class="ans">It has been decided that bonuses will be paid twice a year from now on.</span></li>
+      <li>We're taking part in a system trial (persuade) → <span class="ans">We have been persuaded to take part in a new system trial.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7 READING -->
+<section class="sheet" id="reading" aria-labelledby="h-read">
+  <div class="sec-head"><span class="num">7</span><h2 id="h-read">Reading: how to score</h2><span class="meta">2 min</span></div>
+  <div class="tbl-wrap"><table class="stack">
+    <thead><tr><th>Question</th><th>How to answer</th></tr></thead>
+    <tbody>
+      <tr><td>True / False, correct the false ones <span class="stamp">DS 2023</span></td><td class="plain">Write True or False in full, then rewrite the false idea with the text's words. Usually one word is swapped: <i>minor ↔ major</i>, <i>clients ↔ managers</i>, <i>unacceptable ↔ normal</i>.</td></tr>
+      <tr><td>Words in bold → definitions <span class="stamp">DS 2023</span></td><td class="plain">Match the grammar: an -ing definition needs an -ing word. <i>making very small changes → fine-tuning</i> · <i>giving too much work → over-assigning</i>.</td></tr>
+      <tr><td>Missing paragraphs A–F <span class="stamp">DS 2025</span></td><td class="plain">Read the lines before and after each gap. The first words of a paragraph point back: <i>These aims…</i>, <i>After this…</i>, <i>Some useful advice followed…</i>. Use the words in bold.</td></tr>
+      <tr><td>Writer's attitude, justify <span class="stamp">DS 2025</span></td><td class="plain">One adjective and two short quotes. In 2025: critical and disappointed, <i>“too abstract to be useful”</i>, <i>“disappointingly unambitious”</i>.</td></tr>
+      <tr><td>Find words meaning…, then give the noun or adjective <span class="stamp">DS 2025</span></td><td class="plain">Look only in the part named and keep the part of speech. In 2025: clever and funny → <span class="ans">witty (wit)</span> · understand others' feelings → <span class="ans">empathise (empathy, empathetic)</span> · mocking → <span class="ans">sarcastic (sarcasm)</span> · polite → <span class="ans">courteous (courtesy)</span> · audacity → <span class="ans">courage (courageous)</span></td></tr>
+      <tr><td>Open question <span class="stamp">DS 2023</span></td><td class="plain">Write 5–6 sentences and reuse course words. Ready-made answers are below.</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small"><b>Attitude words.</b> Positive: enthusiastic, impressed, optimistic. Negative: critical, disappointed, sceptical, frustrated. Neutral: objective, balanced.</p>
+  <div class="block">
+    <h3>Ready-made open answers</h3>
+    <div class="g3">
+      <div class="model">
+        <h4>What makes a project succeed?</h4>
+        <p>Besides delivering on time, a project needs <span class="i">upfront planning</span>, an <span class="i">accurate forecast</span> and a <span class="i">realistic budget</span>. The manager should <span class="i">prioritize tasks</span>, <span class="i">keep track of</span> spending and check progress regularly, so the team <span class="i">stays on track</span> and <span class="i">within budget</span>. Clear communication with the team, suppliers and clients prevents breakdowns, and conflicts must be resolved quickly. Finally, reviewing past projects stops the team from repeating the same mistakes.</p>
+      </div>
+      <div class="model">
+        <h4>What makes a good communicator?</h4>
+        <p>A good communicator really <span class="v">listens</span> and does not <span class="v">interrupt</span>. They are <span class="v">articulate</span>, <span class="v">coherent</span> and <span class="v">succinct</span>, so they get straight to the point instead of rambling. They avoid jargon or explain it with an easy example, pay attention to body language, and are <span class="v">responsive</span> and <span class="v">sensitive</span> to other people. As Wittgenstein said, everything that can be said can be said clearly.</p>
+      </div>
+      <div class="model">
+        <h4>What makes a good leader?</h4>
+        <p>“The key to successful leadership today is influence, not authority” (Kenneth Blanchard). A good leader shows <span class="v">integrity</span> and <span class="v">empathy</span>, is <span class="v">decisive</span> but <span class="v">collaborative</span>, and is <span class="v">approachable</span> rather than distant. They <span class="i">take on responsibility</span> instead of <span class="i">passing the buck</span>, and they shape and share a vision, which gives point to the work of others (Charles Handy).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 TRAPS -->
+<section class="sheet trap-sheet" id="traps" aria-labelledby="h-traps">
+  <div class="sec-head"><span class="num">8</span><h2 id="h-traps">Ten traps to check before you hand in</h2><span class="meta">1 min</span></div>
+  <ol class="traps">
+    <li>“Right tense or form” means you change the verb: <i>ran out of money</i>, <i>allocating funds</i>, <i>were talking at cross purposes</i>.</li>
+    <li>stop / avoid / blamed for + <b>-ing</b>: <i>stop beating about the bush</i>.</li>
+    <li><b>When…?</b> and finished times take the past simple. <b>yet, already, just, since, for</b> take the present perfect.</li>
+    <li>Commas around a relative clause: <b>who</b> or <b>which</b>, never that.</li>
+    <li>Not <s>I've been suggested</s>. Write <i>It has been suggested that…</i></li>
+    <li>Opposite pairs: cautious ↔ <b>decisive</b>, casual ↔ <b>formal</b>, idealistic ↔ <b>realistic</b>.</li>
+    <li>Prepositions: run <b>into</b> · come in <b>for</b> · fall <b>behind</b> · go <b>over</b> · stay <b>within</b> · put <b>forward</b>.</li>
+    <li>“There are 3 extra words”: cross each word out as you use it.</li>
+    <li>True / False: always correct the false ones with the text's words.</li>
+    <li>Spelling: succinct, eloquence, responsiveness, laid-back (with a hyphen), formally dressed. Never leave a gap empty.</li>
+  </ol>
+</section>
+
+<!-- 9 BONUS -->
+<section class="sheet bonus" id="bonus" aria-labelledby="h-bonus">
+  <div class="sec-head"><span class="num">9</span><h2 id="h-bonus">Bonus: later fascicule units</h2><span class="meta">5 min · only if you have time</span></div>
+  <p class="small">Team building, Ethical business and Making decisions were not in either past S1 paper or in this year's corrections, so they probably come later. Skim them if you have time.</p>
+  <div class="g3">
+    <div class="block">
+      <h3>Team building</h3>
+      <p><b>Stages:</b> Forming (anxious, depends on the leader) → Storming (conflict) → Norming (closer, conflicts settled) → Performing (doing the task, flexible roles) → Mourning or Adjourning (the team breaks up).</p>
+      <p><b>Roles:</b> Plant (creative ideas) · Teamworker (diplomatic, prevents conflict) · Co-ordinator (clarifies goals, delegates) · Shaper (dynamic, pushes past obstacles) · Completer Finisher (meticulous, quality and deadlines).</p>
+      <p><b>Prefixes:</b> mis- badly (mismanage) · pro- in favour of · pre- before · post- after · ex- former · bi- two · re- again · hyper- very or too much · dis-, un-, in-, im-, ir- not (dishonest, uncommunicative, indecisive, impractical, irresponsible).</p>
+      <p><b>Modal perfect</b> (modal + have + past participle). Criticising the past: should have, shouldn't have, needn't have, could have. Guessing: must have, may have, might have, couldn't have.</p>
+    </div>
+    <div class="block">
+      <h3>Ethical business</h3>
+      <p><b>Collocations:</b> act responsibly · comply with regulations · share a strong commitment to · take an active part in · stay true to its principles · reduce the impact · donate time or money.</p>
+      <p><b>Ethical:</b> ethics, responsibility, fairness, generosity, values, credibility. <b>Unethical:</b> bribery, deception, corruption, greed, discrimination, prejudice.</p>
+      <p><b>Future forms:</b> will = decision while speaking, or prediction · going to = plan · present continuous = arrangement · present simple = timetable.</p>
+    </div>
+    <div class="block">
+      <h3>Making decisions</h3>
+      <p><b>Personality types:</b> extrovert or introvert · sensor or intuitive · thinker or feeler · judger or perceiver.</p>
+      <p><b>Phrases:</b> weigh up all the options · consider different perspectives · trust my instincts · rely on my own judgement · have confidence in my decision.</p>
+      <p><b>good at</b> a skill · <b>good with</b> people or things.</p>
+      <p><b>Countability:</b> information, advice, equipment, travel, news, money and software are uncountable (much, little, less). Facts, proposals and journeys are countable (many, few, fewer).</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap foot">
+  <p>Sources: Anglais Fascicule 2025 · the teacher's corrections (email of 1 Nov 2026) · mid-term papers of 31 Oct 2023 (with official key) and 5 Nov 2025 (no key, so those answers are marked “my answers”) · class notes on team work, ethical business and decision making. Older papers (2008–2022) used other textbooks and were left out.</p>
+</footer>
+
+<script>
+(function(){
+  var body=document.body, btn=document.getElementById('quiz');
+  function setQuiz(on, save){
+    body.classList.toggle('quiz', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Show answers' : 'Hide answers';
+    var els=document.querySelectorAll('.ans');
+    for(var k=0;k<els.length;k++){
+      els[k].classList.remove('shown');
+      if(on){ els[k].setAttribute('tabindex','0'); } else { els[k].removeAttribute('tabindex'); }
+    }
+    if(save){ try{ localStorage.setItem('ds-quiz', on ? '1' : '0'); }catch(e){} }
+  }
+  btn.addEventListener('click', function(){ setQuiz(!body.classList.contains('quiz'), true); });
+  document.addEventListener('click', function(e){
+    if(!body.classList.contains('quiz') || !e.target.closest) return;
+    var el=e.target.closest('.ans');
+    if(el){ el.classList.toggle('shown'); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(!body.classList.contains('quiz')) return;
+    var t=e.target;
+    if(t && t.classList && t.classList.contains('ans') && (e.key==='Enter' || e.key===' ')){
+      e.preventDefault(); t.classList.toggle('shown');
+    }
+  });
+  var saved=null; try{ saved=localStorage.getItem('ds-quiz'); }catch(e){}
+  if(saved==='1'){ setQuiz(true, false); }
+
+  var chips=document.querySelector('.chips');
+  var links=Array.prototype.slice.call(chips.querySelectorAll('a'));
+  var byId={}; links.forEach(function(a){ byId[a.getAttribute('href').slice(1)]=a; });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var a=byId[en.target.id]; if(!a) return;
+        links.forEach(function(x){ x.removeAttribute('aria-current'); });
+        a.setAttribute('aria-current','true');
+        var left=a.offsetLeft, right=left+a.offsetWidth;
+        if(left<chips.scrollLeft || right>chips.scrollLeft+chips.clientWidth){
+          chips.scrollLeft=Math.max(0,left-12);
+        }
+      });
+    },{rootMargin:'-25% 0px -70% 0px'});
+    document.querySelectorAll('main section.sheet').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
